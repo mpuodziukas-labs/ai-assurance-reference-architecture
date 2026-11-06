@@ -1,0 +1,18 @@
+# illustrative, supply your own prices
+# Every number below is made up. Replace all of them with measured values.
+requests_per_day: 20000
+days_per_month: 30
+tokens_in: 1500
+tokens_out: 400
+price_per_million_in: 1.0
+price_per_million_out: 2.0
+cache_hit_rate: 0.3
+cache_cost_per_request: 0.00001
+cache_fixed_monthly: 20.0
+slo_ms: 2500
+stages:
+  - {name: input_gate, p95_ms: 15, budget_ms: 50}
+  - {name: retrieve, p95_ms: 180, budget_ms: 300}
+  - {name: model, p95_ms: 1500, budget_ms: 1800}
+  - {name: output_gate, p95_ms: 40, budget_ms: 100}
+  - {name: trace_write, p95_ms: 10, budget_ms: 50}
